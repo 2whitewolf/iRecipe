@@ -11,6 +11,7 @@ enum BackendAPIService {
     case getRandom
     case findByname(name: String)
     case findByCategory(name: String)
+    case getMealById(id: String)
     var baseURL: String {
       return  "www.themealdb.com/api/json/v1/1"
     }
@@ -24,7 +25,9 @@ enum BackendAPIService {
         case .findByname(name: let name):
             return "/search.php?s=\(name)"
         case .findByCategory(name: let name):
-            return "/filter.php?c\(name)"
+            return "/filter.php?c=\(name)"
+        case .getMealById(id: let id):
+            return "/lookup.php?i=\(id)"
         }
     }
 }

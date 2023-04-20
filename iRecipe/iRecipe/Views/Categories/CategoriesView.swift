@@ -26,18 +26,22 @@ struct CategoriesView: View {
                 .padding(.horizontal)
                 
               
-                
-                List {
-                    ForEach(vm.categories){ category in
-                        CategoryRowView(category: category)
-                            .onTapGesture {
-                                segue(category: category)
-                            }
+                ZStack{
+                    List {
+                        ForEach(vm.categories){ category in
+                            CategoryRowView(category: category)
+                                .onTapGesture {
+                                    segue(category: category)
+                                }
+                        }
                     }
+                    .padding(.top, 40)
+                    .listStyle(.inset)
+                    if vm.categories.count == 0 {
+                        Text("No data")
+                    }
+                    
                 }
-                .padding(.top, 40)
-                .listStyle(.inset)
-                .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
             }
            VStack{
                SearchView(searchText: $searchText, finded: $vm.finded)

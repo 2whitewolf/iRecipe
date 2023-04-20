@@ -19,7 +19,10 @@ struct SearchView: View {
 //        NavigationView {
             VStack {
                 HStack {
-                    TextField("Search", text: $searchText)
+                    HStack{
+                         Image(systemName: "magnifyingglass")
+                        TextField("Search", text: $searchText)
+                    }
                         .padding(8)
                         .padding(.horizontal, 10)
                         .background(Color(.systemGray6))

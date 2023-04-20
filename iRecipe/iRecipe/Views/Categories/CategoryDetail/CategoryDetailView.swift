@@ -32,18 +32,24 @@ struct CategoryDetailView: View {
                             .background(Color.gray)
                             .cornerRadius(10)
                     }
-                    Text("Saved Recipes")
+                    Text("Best meals in this category")
                         .font(.title)
                         .bold()
                     Spacer()
                 }
                 .padding(.horizontal)
-                List {
-                    ForEach(vm.meals) { recipe in
-                        MealRowView(meal: recipe)
-                            .onTapGesture {
-                                segue(recipe: recipe)
-                            }
+                ZStack{
+                    List {
+                        ForEach(vm.meals) { recipe in
+                            MealRowView(meal: recipe)
+                                .onTapGesture {
+                                    segue(recipe: recipe)
+                                }
+                        }
+                    }
+                    
+                    if vm.meals.count == 0 {
+                        Text("No data")
                     }
                 }
                
@@ -71,7 +77,10 @@ struct CategoryDetailView: View {
 
 extension CategoryDetailView{
     private func segue(recipe: MealCategory) {
-//        selectedRecipe = vm.getMealByid(id: recipe.idMeal)
+        vm.getMealByid(id: recipe.idMeal)
+        guard let selected = vm.selected else { return }
+        selectedRecipe = selected
+
         showDetailView.toggle()
     }
 }
@@ -87,11 +96,11 @@ struct MealRowView: View {
     var meal : MealCategory
     var body: some View {
         HStack{
-//            KFImage(URL(string: meal.imageUrlString))
-//                .resizable()
-//                .scaledToFit()
-//                .frame(width: 70, height: 50)
-            Text(meal.name ?? "").padding(.leading)
+            KFImage(URL(string: meal.imageUrlString))
+                .resizable()
+                .scaledToFit()
+                .frame(width: 70, height: 50)
+            Text(meal.name).padding(.leading)
             Spacer()
         }
     }

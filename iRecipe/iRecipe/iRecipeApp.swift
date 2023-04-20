@@ -9,8 +9,11 @@ import SwiftUI
 
 @main
 struct iRecipeApp: App {
+    init() {
+        UITabBar.appearance().isTranslucent = false
+    }
     var body: some Scene {
-        WindowGroup {
+        WindowGroup {   
             NavigationView{
                 TabBar()
                     .navigationBarHidden(true)

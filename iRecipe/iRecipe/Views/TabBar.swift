@@ -26,7 +26,7 @@ struct TabBar: View {
                 }
         }
         .accentColor(Color.black)
-        .background(Color.gray)
+//        .background(Color.gray)
         .toolbarColorScheme(.light, for: .tabBar)
     }
 }
