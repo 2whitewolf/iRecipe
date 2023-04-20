@@ -12,16 +12,25 @@ import Kingfisher
 struct RandomView: View {
     @StateObject private var vm = RandomVM()
     var body: some View {
-        VStack{
-            Text( vm.recipe?.name ?? "")
-                .font(.title)
-            KFImage(URL(string: vm.recipe?.imageUrlString ?? ""))
-                .resizable()
-                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 400, alignment: .center)
-                            .clipped()
-
-        }
-        .padding(20)
+        ZStack {
+           
+            RecipeDetailView(recipe: $vm.recipe)
+            
+            VStack{
+                HStack{
+                   
+                    Spacer()
+                    Button{
+                        
+                    } label: {
+                        Image(systemName: "square.and.arrow.down")
+                    }
+                }
+                 Spacer()
+                
+            }
+            .padding(20)
+        }.onAppear(perform: vm.getRandomRecipe)
         
     }
 }

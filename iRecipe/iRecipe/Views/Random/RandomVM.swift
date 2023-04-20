@@ -15,10 +15,10 @@ class RandomVM : ObservableObject {
     private let networking: APIProtocol = APIManager()
     
     init() {
-        getRandomRecipe()
+//        getRandomRecipe()
     }
     
-    private func getRandomRecipe() {
+     func getRandomRecipe() {
         networking.getRandomRecipe()
             .sink {[weak self] completion in
                             guard let self = self else { return }
@@ -31,6 +31,7 @@ class RandomVM : ObservableObject {
                         } receiveValue: {[weak self] value in
                             guard let self = self else { return }
                             self.recipe = value.meals.first
+//                            print(value.meals)
                         }
             .store(in: &subscriptions)
     }

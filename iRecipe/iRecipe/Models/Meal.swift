@@ -11,8 +11,8 @@ struct MealData: Decodable{
     let meals: [Meal]
 }
 
-struct Meal: Decodable {
-//    let id = UUID()
+struct Meal: Identifiable, Decodable {
+    let id = UUID()
     let name: String
     let imageUrlString: String
     let country: String
@@ -53,3 +53,4 @@ struct Ingredient: Decodable, Hashable {
     let name: String
     let measure: String
 }
+

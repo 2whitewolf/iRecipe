@@ -15,68 +15,102 @@ struct RecipeDetailView: View {
     
     init(recipe: Binding<Meal?>) {
         self._recipe = recipe
+        print(recipe)
         self._vm = StateObject(wrappedValue: RecipeDetailVM(recipe: recipe))
-    }
+           }
     var body: some View {
         ScrollView {
             VStack {
-                
-                if let name = vm.recipe?.name {
-                    Text(name)
-                        .font(.largeTitle)
+               image
+               
+                HStack{
+                    if let name = recipe?.name {
+                        Text(name)
+                            .font(.largeTitle)
+                            .bold()
+                            .padding(.leading,10)
+                        
+                    }
+                     Spacer()
+                    Text(recipe?.country ?? "")
+                        .font(.title2)
+                        .italic()
+                        .padding(.trailing)
                 }
                 
-                KFImage(URL(string: vm.recipe?.imageUrlString ?? ""))
-                    .resizable()
-                    .cancelOnDisappear(true)
-                    .frame(minWidth: 0,maxWidth: .infinity, minHeight: 0, maxHeight: 450)
-                //                    .frame(width: 250, height: 450)
-                    .scaledToFit()
-                    .cornerRadius(12)
-                
-                if let ingredients = vm.recipe?.ingredients {
+                if let ingredients = recipe?.ingredients {
                     HStack {
                         Text("Ingredients")
                             .font(.title2)
-                        Spacer()}
+                            .bold()
+                            .padding(.top,5)
+                        Spacer()
+                        
+                    }.padding(.leading)
                     ForEach(ingredients, id: \.self) { ingredient in
                         HStack {
-                            Text(ingredient.name + " - " + ingredient.measure)
+                            Text(ingredient.name)
+                                .fontDesign(.rounded)
+                                
                             Spacer()
+                             Text(ingredient.measure)
+                                .italic()
+                           
                         }
+                        .padding(.horizontal)
                     }
                     
                 }
                 
                 
                 
-                if let instructions = vm.recipe?.instructions {
+                if let instructions = recipe?.instructions {
                     VStack {
-                        Text("Preparing")
-                            .font(.title2)
-                            .padding(.bottom)
+                        HStack{
+                            Text("Preparing")
+                                .font(.title2)
+                                .bold()
+                            
+                             Spacer()
+                        }
                         Text(instructions)
+                            .italic()
                     }.padding()
                 }
                 
+                Spacer()
+                if let url = URL(string: recipe?.youtubeLink ?? "") {
+                    Link(destination: url) {
+                        HStack{
+                            Image(systemName: "play.rectangle.fill")
+                                .font(.largeTitle)
+                            Text("Watch on Youtube")
+                        }.padding(10)
+                        .foregroundColor(.white)
+                        .background(Color.red)
+                        .cornerRadius(14)
+                        
+                    }
+                }
             }
-            .padding()
-            
-            
         }
+        .ignoresSafeArea()
+        .padding(.bottom)
     }
 }
 
-
-
-
-
-
-
-
-
-
-
+extension RecipeDetailView {
+    private var image: some View {
+        KFImage(URL(string: recipe?.imageUrlString ?? ""))
+            .placeholder{
+                Image("placeholder")
+            }
+            .resizable()
+            .cancelOnDisappear(true)
+            .frame(minWidth: 0,maxWidth: .infinity, minHeight: 0, maxHeight: UIScreen.main.bounds.height * 0.7)
+            .scaledToFit()
+    }
+}
 
 
 struct RecipeDetailView_Previews: PreviewProvider {
@@ -90,7 +124,7 @@ struct RecipeDetailView_Previews: PreviewProvider {
                                Ingredient(name: "Oil", measure: "40g"),
                                Ingredient(name: "Salt", measure: "Dash"),
                                Ingredient(name: "Pepper", measure: "Dash")],
-                 instructions: "Fry the finely chopped onions and minced meat in oil. Add the salt and pepper. Grease a round baking tray and put a layer of pastry in it. Cover with a thin layer of filling and cover this with another layer of filo pastry which must be well coated in oil. Put another layer of filling and cover with pastry. When you have five or six layers, cover with filo pastry, bake at 200ºC/392ºF for half an hour and cut in quarters and serve.", youtubeLink: "")
+                 instructions: "Fry the finely chopped onions and minced meat in oil. Add the salt and pepper. Grease a round baking tray and put a layer of pastry in it. Cover with a thin layer of filling and cover this with another layer of filo pastry which must be well coated in oil. Put another layer of filling and cover with pastry. When you have five or six layers, cover with filo pastry, bake at 200ºC/392ºF for half an hour and cut in quarters and serve.", youtubeLink: "www.youtube.com")
         )
     )
     }
