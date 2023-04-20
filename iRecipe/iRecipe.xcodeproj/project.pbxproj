@@ -25,8 +25,14 @@
 		435343DB29F13C5500691296 /* MealRM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435343DA29F13C5500691296 /* MealRM.swift */; };
 		435343DD29F1497C00691296 /* Realm + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435343DC29F1497C00691296 /* Realm + Ext.swift */; };
 		435343E029F14B2800691296 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435343DF29F14B2800691296 /* RealmService.swift */; };
+		435343E229F1503100691296 /* SavedVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435343E129F1503100691296 /* SavedVM.swift */; };
+		435343E429F1721500691296 /* CategoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435343E329F1721500691296 /* CategoryVM.swift */; };
+		435343E629F1823500691296 /* CategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435343E529F1823500691296 /* CategoryDetailView.swift */; };
+		435343E929F1827A00691296 /* CategoryDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435343E829F1827A00691296 /* CategoryDetailVM.swift */; };
+		435343EB29F1877000691296 /* MealByCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435343EA29F1877000691296 /* MealByCategory.swift */; };
+		435343EE29F1B5B600691296 /* UIApplication + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435343ED29F1B5B600691296 /* UIApplication + Ext.swift */; };
+		435343F229F1B62700691296 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 435343F129F1B62700691296 /* SearchView.swift */; };
 		436F9B2E29EED6B000A5CF98 /* iRecipeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F9B2D29EED6B000A5CF98 /* iRecipeApp.swift */; };
-		436F9B3029EED6B000A5CF98 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F9B2F29EED6B000A5CF98 /* ContentView.swift */; };
 		436F9B3229EED6B100A5CF98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 436F9B3129EED6B100A5CF98 /* Assets.xcassets */; };
 		436F9B3529EED6B100A5CF98 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 436F9B3429EED6B100A5CF98 /* Preview Assets.xcassets */; };
 		436F9B3F29EED6B100A5CF98 /* iRecipeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F9B3E29EED6B100A5CF98 /* iRecipeTests.swift */; };
@@ -66,9 +72,15 @@
 		435343DA29F13C5500691296 /* MealRM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealRM.swift; sourceTree = "<group>"; };
 		435343DC29F1497C00691296 /* Realm + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm + Ext.swift"; sourceTree = "<group>"; };
 		435343DF29F14B2800691296 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmService.swift; path = iRecipe/Models/RealmService.swift; sourceTree = SOURCE_ROOT; };
+		435343E129F1503100691296 /* SavedVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedVM.swift; sourceTree = "<group>"; };
+		435343E329F1721500691296 /* CategoryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVM.swift; sourceTree = "<group>"; };
+		435343E529F1823500691296 /* CategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailView.swift; sourceTree = "<group>"; };
+		435343E829F1827A00691296 /* CategoryDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailVM.swift; sourceTree = "<group>"; };
+		435343EA29F1877000691296 /* MealByCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealByCategory.swift; sourceTree = "<group>"; };
+		435343ED29F1B5B600691296 /* UIApplication + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication + Ext.swift"; sourceTree = "<group>"; };
+		435343F129F1B62700691296 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		436F9B2A29EED6B000A5CF98 /* iRecipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRecipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		436F9B2D29EED6B000A5CF98 /* iRecipeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iRecipeApp.swift; sourceTree = "<group>"; };
-		436F9B2F29EED6B000A5CF98 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		436F9B3129EED6B100A5CF98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		436F9B3429EED6B100A5CF98 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		436F9B3A29EED6B100A5CF98 /* iRecipeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iRecipeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,7 +137,7 @@
 				435343BF29F080F800691296 /* Meal.swift */,
 				435343C129F0811600691296 /* Category.swift */,
 				435343DA29F13C5500691296 /* MealRM.swift */,
-				435343DC29F1497C00691296 /* Realm + Ext.swift */,
+				435343EA29F1877000691296 /* MealByCategory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -142,7 +154,10 @@
 		435343C529F0814A00691296 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				435343E729F1826400691296 /* CategoryDetail */,
 				435343C829F0818B00691296 /* CategoriesView.swift */,
+				435343E329F1721500691296 /* CategoryVM.swift */,
+				435343F129F1B62700691296 /* SearchView.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -160,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				435343D329F0825800691296 /* SavedView.swift */,
+				435343E129F1503100691296 /* SavedVM.swift */,
 			);
 			path = Saved;
 			sourceTree = "<group>";
@@ -179,6 +195,24 @@
 				435343DF29F14B2800691296 /* RealmService.swift */,
 			);
 			path = Realm;
+			sourceTree = "<group>";
+		};
+		435343E729F1826400691296 /* CategoryDetail */ = {
+			isa = PBXGroup;
+			children = (
+				435343E529F1823500691296 /* CategoryDetailView.swift */,
+				435343E829F1827A00691296 /* CategoryDetailVM.swift */,
+			);
+			path = CategoryDetail;
+			sourceTree = "<group>";
+		};
+		435343EC29F1B59800691296 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				435343DC29F1497C00691296 /* Realm + Ext.swift */,
+				435343ED29F1B5B600691296 /* UIApplication + Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		436F9B2129EED6B000A5CF98 = {
@@ -204,12 +238,12 @@
 		436F9B2C29EED6B000A5CF98 /* iRecipe */ = {
 			isa = PBXGroup;
 			children = (
-				435343DE29F14B0B00691296 /* Realm */,
-				435343BA29F0807600691296 /* Network */,
-				435343B929F0806700691296 /* Models */,
-				435343B829F0805C00691296 /* Views */,
 				436F9B2D29EED6B000A5CF98 /* iRecipeApp.swift */,
-				436F9B2F29EED6B000A5CF98 /* ContentView.swift */,
+				435343B829F0805C00691296 /* Views */,
+				435343B929F0806700691296 /* Models */,
+				435343BA29F0807600691296 /* Network */,
+				435343EC29F1B59800691296 /* Extensions */,
+				435343DE29F14B0B00691296 /* Realm */,
 				436F9B3129EED6B100A5CF98 /* Assets.xcassets */,
 				436F9B3329EED6B100A5CF98 /* Preview Content */,
 			);
@@ -385,16 +419,22 @@
 				435343D029F081F900691296 /* RandomView.swift in Sources */,
 				435343C929F0818B00691296 /* CategoriesView.swift in Sources */,
 				435343DD29F1497C00691296 /* Realm + Ext.swift in Sources */,
+				435343E429F1721500691296 /* CategoryVM.swift in Sources */,
 				435343CE29F081CF00691296 /* RecipeDetailVM.swift in Sources */,
+				435343E629F1823500691296 /* CategoryDetailView.swift in Sources */,
 				435343CC29F081B100691296 /* RecipeDetailView.swift in Sources */,
+				435343EE29F1B5B600691296 /* UIApplication + Ext.swift in Sources */,
 				435343C029F080F800691296 /* Meal.swift in Sources */,
 				435343BC29F0809800691296 /* APIManager.swift in Sources */,
+				435343F229F1B62700691296 /* SearchView.swift in Sources */,
+				435343E229F1503100691296 /* SavedVM.swift in Sources */,
 				435343D429F0825800691296 /* SavedView.swift in Sources */,
+				435343EB29F1877000691296 /* MealByCategory.swift in Sources */,
 				435343BE29F080D700691296 /* BackendAPIService.swift in Sources */,
-				436F9B3029EED6B000A5CF98 /* ContentView.swift in Sources */,
 				436F9B2E29EED6B000A5CF98 /* iRecipeApp.swift in Sources */,
 				435343D229F0820700691296 /* RandomVM.swift in Sources */,
 				435343DB29F13C5500691296 /* MealRM.swift in Sources */,
+				435343E929F1827A00691296 /* CategoryDetailVM.swift in Sources */,
 				435343C229F0811600691296 /* Category.swift in Sources */,
 				435343C429F0814200691296 /* TabBar.swift in Sources */,
 				435343E029F14B2800691296 /* RealmService.swift in Sources */,

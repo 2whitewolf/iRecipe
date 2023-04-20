@@ -26,6 +26,7 @@ class RMIngredient: Object{
 extension RMMeal {
     func toMain() -> Meal {
         return Meal(
+            id: id,
             name: name,
             imageUrlString: imageURLString ?? "",
             country: country ?? "",

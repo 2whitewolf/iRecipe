@@ -12,12 +12,23 @@ import Alamofire
 protocol APIProtocol {
     func getCategories() -> AnyPublisher<CategoryData, AFError>
     func getRandomRecipe() -> AnyPublisher<MealData, AFError>
-    func findByName() -> AnyPublisher<MealData, AFError>
+    func findByName(name: String) -> AnyPublisher<MealData, AFError>
+    func findByCategory(name: String) -> AnyPublisher<MealCategoryData, AFError>
 }
 
 struct APIManager: APIProtocol {
-    func findByName() -> AnyPublisher<MealData, AFError> {
-        let url = makeUrl(make: .getCategories)
+    func findByCategory(name: String) -> AnyPublisher<MealCategoryData, Alamofire.AFError> {
+        let url = makeUrl(make: .findByCategory(name: name))
+        return AF.request(url, method: .get)
+        .validate()
+        .publishDecodable(type: MealCategoryData.self)
+        .value()
+        .receive(on: DispatchQueue.main)
+        .eraseToAnyPublisher()
+    }
+    
+    func findByName(name: String) -> AnyPublisher<MealData, AFError> {
+        let url = makeUrl(make: .findByname(name: name))
         return AF.request(url, method: .get)
         .validate()
         .publishDecodable(type: MealData.self)
@@ -49,14 +60,8 @@ struct APIManager: APIProtocol {
 }
 extension APIManager{
     private func makeUrl(make: BackendAPIService) -> URL{
-//        return URL(string: "\(make.baseURL)\(make.path)")!
-        var urlComponent = URLComponents()
-
-        urlComponent.scheme = "https"
-        urlComponent.host = make.baseURL
-        urlComponent.path = make.baseURL + make.path
-        
-        return urlComponent.url!
+        let url = URL(string: "https://\(make.baseURL)\(make.path)")!    
+        return url
     }
 }
 

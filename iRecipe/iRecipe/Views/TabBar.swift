@@ -25,6 +25,8 @@ struct TabBar: View {
                    Label("Saved", systemImage: "list.star")
                 }
         }
+        .accentColor(Color.black)
+        .background(Color.gray)
         .toolbarColorScheme(.light, for: .tabBar)
     }
 }

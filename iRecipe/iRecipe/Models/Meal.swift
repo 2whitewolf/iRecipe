@@ -12,13 +12,23 @@ struct MealData: Decodable{
 }
 
 struct Meal: Identifiable, Decodable {
-    let id = UUID()
+    let id: UUID
     let name: String
     let imageUrlString: String
     let country: String
     let ingredients: [Ingredient]
     let instructions: String
     let youtubeLink: String
+    
+    init(id: UUID = UUID() ,name: String, imageUrlString: String, country: String, ingredients: [Ingredient], instructions: String, youtubeLink: String) {
+        self.id = id
+        self.name = name
+        self.imageUrlString = imageUrlString
+        self.country = country
+        self.ingredients = ingredients
+        self.instructions = instructions
+        self.youtubeLink = youtubeLink
+    }
 }
 
 extension Meal {
@@ -38,6 +48,7 @@ extension Meal {
             ingredients.append(.init(name: ingredient, measure: measure))
             index += 1
         }
+    id = UUID()
         self.ingredients = ingredients
 //        id = mealDictionary["idMeal"] as? Int ?? 0
         name = mealDictionary["strMeal"] as? String ?? ""
@@ -54,3 +65,13 @@ struct Ingredient: Decodable, Hashable {
     let measure: String
 }
 
+extension Meal: Equatable {
+    static func == (lhs: Meal, rhs: Meal) -> Bool {
+      if let statusLHS = lhs as? Meal,
+         let statusRHS = rhs as? Meal {
+        return statusLHS.id == statusRHS.id && statusLHS.name == statusRHS.name
+      } else {
+        return lhs.id == rhs.id
+      }
+    }
+}

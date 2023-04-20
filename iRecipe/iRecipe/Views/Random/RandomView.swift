@@ -13,24 +13,10 @@ struct RandomView: View {
     @StateObject private var vm = RandomVM()
     var body: some View {
         ZStack {
-           
-            RecipeDetailView(recipe: $vm.recipe)
             
-            VStack{
-                HStack{
-                   
-                    Spacer()
-                    Button{
-                        
-                    } label: {
-                        Image(systemName: "square.and.arrow.down")
-                    }
-                }
-                 Spacer()
-                
-            }
-            .padding(20)
+            RecipeDetailView(recipe: $vm.recipe,saved: false)
         }.onAppear(perform: vm.getRandomRecipe)
+      
         
     }
 }

@@ -11,7 +11,11 @@ import SwiftUI
 struct iRecipeApp: App {
     var body: some Scene {
         WindowGroup {
-            TabBar()
+            NavigationView{
+                TabBar()
+                    .navigationBarHidden(true)
+                  
+            }
         }
     }
 }

@@ -11,9 +11,28 @@ import Combine
 import SwiftUI
 
 class RecipeDetailVM : ObservableObject {
-    @Binding var recipe: Meal?
+//    @Binding var recipe: Meal?
+    private var cancellables: Set<AnyCancellable> = []
+    private let realm = RealmService()
+    init(){
+    }
     
-    init(recipe: Binding<Meal?>){
-        self._recipe = recipe
+    
+    func saveRecipe(recipe: Meal?) {
+        guard let recipe = recipe else { return }
+       
+            
+            realm.addRecipe(recipe.toRealm())
+                .sink(receiveCompletion: { result in
+                    switch result {
+                    case .failure(let error):
+                        print("Failed to save: \(error.localizedDescription)")
+                    case .finished:
+                        break
+                    }
+                }, receiveValue: {  _ in
+                })
+                .store(in: &cancellables)
+        
     }
 }
